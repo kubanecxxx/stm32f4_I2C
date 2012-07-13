@@ -1,3 +1,10 @@
+/**
+ * @file i2c_low_level.h
+ * @author Kubanec
+ * @brief low level I2C driver initialization - ports, clocks
+ *
+ */
+
 #ifndef __I2C_low_level
 #define __I2C_low_level
 
@@ -9,10 +16,8 @@ extern "C"
 #include "stm32f4xx.h"
 #include "i2c_port.h"
 
-#ifdef I2C1_USED
-void i2c_1_LowLevel_DeInit(void);
-void i2c_1_LowLevel_Init(void);
-#endif
+void i2c_LowLevel_DeInit(void);
+void i2c_LowLevel_Init(void);
 
 
 #ifdef __cplusplus

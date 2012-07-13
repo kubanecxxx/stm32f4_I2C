@@ -30,11 +30,17 @@ typedef enum i2c_status
 	i2c_startError,
 	i2c_addressSendFault,
 	i2c_dataSubaddressFault,
-	i2c_dataSendFault
+	i2c_dataSendFault,
+	i2c_repeatedStartFault,
+	i2c_dataReadFault,
+	i2c_repeatedAddressFault,
+	i2c_stopReadFault
 } i2c_status;
 
 i2c_status I2C_send_array_stupid(I2C_TypeDef * i2c,
 		const i2c_requestTypedef * request);
+i2c_status I2C_read_array_stupid(I2C_TypeDef * i2c,
+		i2c_requestTypedef * request);
 
 #ifdef __cplusplus
 }

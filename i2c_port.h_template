@@ -13,7 +13,19 @@ extern "C"
 {
 #endif
 
+//common setting
+#define I2C_STUPID
+
 #define I2C1_USED
+//#define I2C2_USED
+//#define I2C3_USED
+
+#ifdef I2C_STUPID
+#define TIMEOUT 0x1000
+#define LONG_TIMEOUT (10 * TIMEOUT)
+#endif
+
+//special setting for each I2C
 #ifdef I2C1_USED
 #define I2C_1						I2C1
 #define I2C1_CLK                      RCC_APB1Periph_I2C1
@@ -28,12 +40,56 @@ extern "C"
 #define I2C1_SDA_SOURCE               GPIO_PinSource9
 #define I2C1_SDA_AF                   GPIO_AF_I2C1
 
-#define I2C1_SPEED                   50000
+#define I2C1_SPEED                   10000
 #define I2C1_SLAVE_ADDRESS7      	0xE
 #define I2C1_MODE I2C_Mode_I2C;
 #define I2C1_DCL I2C_DutyCycle_2;
 #define I2C1_ACK I2C_Ack_Enable;
 #define I2C1_ACK_ADDRESS I2C_AcknowledgedAddress_7bit;
+#endif
+
+#ifdef I2C2_USED
+#define I2C_2						I2C2
+#define I2C2_CLK                      RCC_APB1Periph_I2C2
+#define I2C2_SCL_PIN                  GPIO_Pin_6                  /* PB.06 */
+#define I2C2_SCL_GPIO_PORT            GPIOB                       /* GPIOB */
+#define I2C2_SCL_GPIO_CLK             RCC_AHB1Periph_GPIOB
+#define I2C2_SCL_SOURCE               GPIO_PinSource6
+#define I2C2_SCL_AF                   GPIO_AF_I2C2
+#define I2C2_SDA_PIN                  GPIO_Pin_9                  /* PB.09 */
+#define I2C2_SDA_GPIO_PORT            GPIOB                       /* GPIOB */
+#define I2C2_SDA_GPIO_CLK             RCC_AHB1Periph_GPIOB
+#define I2C2_SDA_SOURCE               GPIO_PinSource9
+#define I2C2_SDA_AF                   GPIO_AF_I2C2
+
+#define I2C2_SPEED                   10000
+#define I2C2_SLAVE_ADDRESS7      	0xE
+#define I2C2_MODE I2C_Mode_I2C;
+#define I2C2_DCL I2C_DutyCycle_2;
+#define I2C2_ACK I2C_Ack_Enable;
+#define I2C2_ACK_ADDRESS I2C_AcknowledgedAddress_7bit;
+#endif
+
+#ifdef I2C3_USED
+#define I2C_3						I2C3
+#define I2C3_CLK                      RCC_APB1Periph_I2C3
+#define I2C3_SCL_PIN                  GPIO_Pin_6                  /* PB.06 */
+#define I2C3_SCL_GPIO_PORT            GPIOB                       /* GPIOB */
+#define I2C3_SCL_GPIO_CLK             RCC_AHB1Periph_GPIOB
+#define I2C3_SCL_SOURCE               GPIO_PinSource6
+#define I2C3_SCL_AF                   GPIO_AF_I2C3
+#define I2C3_SDA_PIN                  GPIO_Pin_9                  /* PB.09 */
+#define I2C3_SDA_GPIO_PORT            GPIOB                       /* GPIOB */
+#define I2C3_SDA_GPIO_CLK             RCC_AHB1Periph_GPIOB
+#define I2C3_SDA_SOURCE               GPIO_PinSource9
+#define I2C3_SDA_AF                   GPIO_AF_I2C3
+
+#define I2C3_SPEED                   10000
+#define I2C3_SLAVE_ADDRESS7      	0xE
+#define I2C3_MODE I2C_Mode_I2C;
+#define I2C3_DCL I2C_DutyCycle_2;
+#define I2C3_ACK I2C_Ack_Enable;
+#define I2C3_ACK_ADDRESS I2C_AcknowledgedAddress_7bit;
 #endif
 
 #ifdef __cplusplus
