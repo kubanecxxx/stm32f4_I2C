@@ -30,6 +30,10 @@ extern "C"
 
 #define I2C1_SPEED                   50000
 #define I2C1_SLAVE_ADDRESS7      	0xE
+#define I2C1_MODE I2C_Mode_I2C;
+#define I2C1_DCL I2C_DutyCycle_2;
+#define I2C1_ACK I2C_Ack_Enable;
+#define I2C1_ACK_ADDRESS I2C_AcknowledgedAddress_7bit;
 #endif
 
 #ifdef __cplusplus
